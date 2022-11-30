@@ -32,13 +32,13 @@
 <style lang='scss' scoped>
   .v-input {
     display: inline-block;
+    width: 12px;
   }
   .v-input__text {
-    width: 120px;
+    width: 100%;
     height: 30px;
     outline: none;
     border: 1px solid rgba(0,0,0,.15);
-    padding-left: 8px;
 
     &:hover {
       border-color: rgba(0, 0, 0, .54);

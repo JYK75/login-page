@@ -14,7 +14,7 @@
       },
       variant: {
         type: String,
-        default: 'contained', // contained, out-lined
+        default: 'contained', // contained, outlined
       }
     },
     methods: {
@@ -31,7 +31,6 @@
   height: 30px;
   color: $white;
   cursor: pointer;
-  margin: 16px 0;
   transition-property: background-color, border-color,color,opacity;
   transition-duration: .2s;
   border: 1px solid rgba(0,0,0,.15);
@@ -53,7 +52,7 @@
   }
 }
 
-.out-lined {
+.outlined {
   background-color: $white;
   border: 1px solid $primary;
   color: $primary;
