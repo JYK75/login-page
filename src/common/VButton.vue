@@ -29,7 +29,7 @@
 .v-button {
   width: 80px;
   height: 30px;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   margin: 16px 0;
   transition-property: background-color, border-color,color,opacity;
@@ -38,29 +38,29 @@
   border-radius:3px;
 
   &:hover {
-    border-color: #00b2b2;
-    background-color: #00b2b2;
+    border-color: $primary-focus;
+    background-color: $primary-focus;
   }
 }
 
 .contained {
-  background-color: #00c4c4;
-  border: 1px solid #00c4c4;
+  background-color: $primary;
+  border: 1px solid $primary;
 
   &:hover {
-    border-color: #00b2b2;
-    background-color: #00b2b2;
+    border-color: $primary-focus;
+    background-color: $primary-focus;
   }
 }
 
 .out-lined {
-  background-color: #fff;
-  border: 1px solid #00c4c4;
-  color: #00c4c4;
+  background-color: $white;
+  border: 1px solid $primary;
+  color: $primary;
 
   &:hover {
-    border-color: #00c4c4;
-    color: #fff;
+    border-color: $primary;
+    color: $white;
   }
 }
 </style>

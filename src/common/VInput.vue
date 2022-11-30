@@ -1,6 +1,6 @@
 <template>
   <div class="v-input">
-    <input :type="type" :value="value" @input="change" class="v-input__text" placeholder="placeholder" />
+    <input :type="type" :value="value" @input="change" class="v-input__text" :placeholder="placeholder" />
   </div>
 </template>
 
@@ -35,18 +35,17 @@
   }
   .v-input__text {
     width: 120px;
-    height: 120px;
+    height: 30px;
     outline: none;
     border: 1px solid rgba(0,0,0,.15);
     padding-left: 8px;
-    margin-right: 8px;
 
     &:hover {
       border-color: rgba(0, 0, 0, .54);
     }
 
     &:focus {
-      border-color: #00c4c4;
+      border-color: $primary;
     }
   }
 </style>
