@@ -8,14 +8,16 @@
     </label>
     
     <v-button class="login-form__button" type="submit">로그인</v-button>
-    <v-button class="login-form__button" variant="outlined">회원가입</v-button>
+    <router-link to="/signIn">
+      <v-button class="login-form__button" variant="outlined">회원가입</v-button>
+    </router-link>
   </form>
 </template>
 
 <script>
 import VInput from '@/common/VInput.vue';
 import VButton from '@/common/VButton.vue';
-import { loginUser } from '@/services/login';
+import { loginUser, } from '@/services/login';
 
 export default {
   name: 'login-form',
@@ -39,7 +41,7 @@ export default {
       const result = loginUser(user);
       console.log(result);
       event.preventDefault();
-    }
+    },
   }
 }
 
@@ -54,7 +56,7 @@ export default {
   flex-flow: column;
   width: 100%;
 
-  &__text, &__button, label {
+  &__text, &__button, label, a {
     width: 100%;
   }
 }

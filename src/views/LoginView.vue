@@ -23,8 +23,10 @@ import LoginForm from '@/components/login/LoginForm.vue';
   align-items: center;
   justify-content: center;
   flex-flow: column;
+
+  .form {
+    width: 300px;
+  }
 }
-.form {
-  width: 300px;
-}
+
 </style>

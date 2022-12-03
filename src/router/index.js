@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import SignInView from '@/views/SignView'
+
+import store from '@/store';
 
 Vue.use(VueRouter)
 
@@ -10,13 +13,12 @@ const routes = [
     name: 'home',
     component: HomeView,
     beforeEnter: (to, from, next) => {
-      console.log(to, from, next);
-      const isLogin = false;
+      const isLogin = store.getters.isLogin;
       if (isLogin) {
         return next();
       }
       alert('로그인을 해야합니다.');
-      return next();
+      return next('/login');
     }
   },
   {
@@ -26,6 +28,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
+  },
+  {
+    path: '/signIn',
+    name: 'signIn',
+    component: SignInView,
   }
 ]
 

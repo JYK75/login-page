@@ -1,6 +1,10 @@
 <template>
   <div class="v-input">
-    <input :type="type" :value="value" @input="change" class="v-input__text" :placeholder="placeholder" />
+    <input :type="type" :value="value" @input="change" class="v-input__text" 
+    :class="{error: isError}" :placeholder="placeholder"
+    @keypress.enter="$emit('enter')" @blur="$emit('blur')"
+    />
+    <span v-if="isError && errorMsg" class="error-msg">{{ errorMsg }}</span>
   </div>
 </template>
 
@@ -19,6 +23,14 @@
       },
       placeholder: {
         type: String,
+      },
+      isError: {
+        type: Boolean,
+        default: false,
+      },
+      errorMsg: {
+        type: String,
+        default: '',
       }
     },
     methods: {
@@ -32,20 +44,32 @@
 <style lang='scss' scoped>
   .v-input {
     display: inline-block;
-    width: 12px;
-  }
-  .v-input__text {
-    width: 100%;
+    width: 120px;
     height: 30px;
-    outline: none;
-    border: 1px solid rgba(0,0,0,.15);
 
-    &:hover {
-      border-color: rgba(0, 0, 0, .54);
+    &__text {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border: 1px solid rgba(0,0,0,.15);
+      padding-left: 8px;
+      box-sizing: border-box;
+
+      &:hover {
+        border-color: rgba(0, 0, 0, .54);
+      }
+
+      &:focus {
+        border-color: $primary;
+      }
+      &.error {
+        border: 1px solid $error;
+      }
     }
 
-    &:focus {
-      border-color: $primary;
+    .error-msg {
+      color: $error;
+      font-size: 12px;
     }
   }
 </style>
