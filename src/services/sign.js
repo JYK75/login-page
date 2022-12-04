@@ -1,4 +1,5 @@
-import axios from './axios';
+import axios from './axios/axios';
+import authAxios from './axios/authAxios';
 import router from '@/router'
 
 export const signInUser = async (data) => {
@@ -8,5 +9,13 @@ export const signInUser = async (data) => {
     router.push('/login');
   } catch (err) {
     console.log(err)
+  }
+}
+
+export const getUserInfo = async () => {
+  try {
+    await authAxios.get('/userInfo');
+  } catch (err) {
+    console.log(err);
   }
 }
