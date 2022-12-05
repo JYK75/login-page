@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SignInView from '@/views/SignView'
+import UserView from '@/views/UserView'
+import UsersView from '@/views/UsersView'
+import NotFound from '@/views/NotFound'
 
 import { getRefreshToken } from '@/services/login';
 
@@ -27,6 +30,16 @@ const routes = [
     // }
   },
   {
+    path: '/users',
+    name: 'users',
+    component: UsersView,
+  },
+  {
+    path: '/users/:id',
+    name: 'users',
+    component: UserView,
+  },
+  {
     path: '/login',
     name: 'login',
     // route level code-splitting
@@ -38,6 +51,14 @@ const routes = [
     path: '/signIn',
     name: 'signIn',
     component: SignInView,
+  },
+  {
+    path: '/notFound',
+    component: NotFound
+  },
+  {
+    path: '*',
+    redirect: '/notFound', 
   }
 ]
 

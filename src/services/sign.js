@@ -12,9 +12,19 @@ export const signInUser = async (data) => {
   }
 }
 
-export const getUserInfo = async () => {
+export const getUserInfoList = async () => {
   try {
-    await authAxios.get('/userInfo');
+    const {data} = await authAxios.get('/userInfo');
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export const getUserInfo = async (id) => {
+  try {
+    const {data} = await authAxios.get(`/userInfo/${id}`);
+    return data;
   } catch (err) {
     console.log(err);
   }
